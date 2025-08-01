@@ -5,13 +5,13 @@ using namespace std;
 string recursive_string(string name) {
 
     if(name.length() == 0) return "";
-    return string(1, name[name.length() - 1]) + recursive_string(name.substr(0, name.length() - 1));
+    return name[name.length() - 1] + recursive_string(name.substr(0, name.length() - 1));
 }
 
 string recursive_string_alternate(string name){
 
     if(name.length() == 0) return "";
-    return recursive_string_alternate(name.substr(0, name.length() - 1)) + string(1, name[name.length() - 1]);
+    return recursive_string_alternate(name.substr(1)) +  name[0];
 }
 
 // Recursive function to reverse a string (Approach 1: append last character first)
@@ -32,7 +32,7 @@ int main() {
     string name = "Hello";
 
     cout << "Original string: " << name << endl;
-    cout << "Reversed string: " << recursive_string_alternate(name) << endl;
+    cout << "Reversed string: " << recursive_string(name) << endl;
 
     return 0;
 }

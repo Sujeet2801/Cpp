@@ -18,7 +18,7 @@ bool isValidGoodString(const string& str) {
     unordered_set<char> primeAllowed = {'2', '3', '5', '7'};
 
     for (size_t i = 0; i < str.length(); ++i) {
-        if (i % 2 == 0 && evenAllowed.find(str[i]) == evenAllowed.end()) {
+        if (i % 2 == 0 && evenAllowed.find(str[i]) == evenAllowed.end()) { // evenAllowed.count(str[i]) == 0)
             return false;
         }
         if (i % 2 == 1 && primeAllowed.find(str[i]) == primeAllowed.end()) {
@@ -29,7 +29,7 @@ bool isValidGoodString(const string& str) {
 }
 
 // Count good strings
-int countGoodStrings(const string& str) {
+int countGoodStrings( string& str) {
     int length = str.length();
     int evenCount = (length + 1) / 2;
     int oddCount = length / 2;
@@ -40,9 +40,9 @@ int main() {
     string name = "2345";
 
     if (isValidGoodString(name)) {
-        cout << "Valid Good String ✅" << endl;
+        cout << "Valid String ✅" << endl;
     } else {
-        cout << "Invalid Good String ❌" << endl;
+        cout << "Invalid String ❌" << endl;
         return 0;
     }
 
